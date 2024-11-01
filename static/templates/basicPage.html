@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script></script>
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css') }}" >
+    <script defer src = "{{ url_for('static', filename='js/script.js')}}"></script>
+    <title>{%block title%}Portfolio Website{% endblock %}</title>
+</head>
+<body>
+
+    {%block header%}
+    <header id = "header">
+        <ul id = "header-bar">
+            <a href = "\"><li>Home</li></a>
+            <a href = "\projects"><li>Projects</li></a>
+            <a href = "\about-me"><li>About Me</li></a>
+            <a href = "\contact-me"><li>Contact Me</li></a>
+        </ul>
+    </header>
+    {%endblock%}
+
+    {%block content%}
+    <div id = "main-content">
+    </div>
+    {%endblock%}
+
+    {%block footer%}
+    <footer id ="footer">
+        <div id = "footer-cont"> ©All Rights Reserved 2024</div>
+    </footer>
+    {%endblock%}
+</body>
+</html>

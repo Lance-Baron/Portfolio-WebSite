@@ -1,0 +1,76 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(68, 68, 68);
+    color: white;
+    height: auto;
+}
+
+#header{
+    display:flex;
+    width: 100%;
+    height: 50px; 
+    background-color: aliceblue;
+}
+
+#header-bar{
+    display: inline;
+    list-style: none;
+    text-align: right;
+}
+
+#header-bar a{
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+    margin-right: 20px;
+}
+
+#header-bar a:hover{
+    color: #40b5db;
+}
+
+#main-content{
+    position: relative;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#footer{
+    position: absolute;
+    top: calc(100% - 50px);
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: aliceblue;
+    color: black;
+}
+.footer-adjust{
+    position: relative !important;
+}
+#footer-cont{
+    position: relative;
+    text-align: center;
+    padding-top:15px;
+
+}
+#accounts{
+    list-style: none;
+
+}
+#accounts li a{
+    text-decoration: none;
+    color: white;
+}
+#accounts li a:hover{
+    color:lightblue;
+    cursor: pointer;
+}
+
+a{
+    color: white;
+}
+a:hover{
+    color:lightblue;
+    cursor: pointer;
+}
