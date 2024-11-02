@@ -5,47 +5,11 @@
 {%block content%}
 <div id = "main-content">
     <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
-    <h1>Projects</h1>
+    <p>Bellow is a list of projects that I am either currently working on, or have already completed. Click the name to get taken to a page that details that specific page more</p>
+    <ul>
+        {%for name, file in data.items()%}
+        <a href='projects/{{file}}'><h1>{{name}}</h1></a>
+        {% endfor %}
+    </ul>
 </div>
 {%endblock%}
