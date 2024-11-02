@@ -37,8 +37,6 @@ def makeBetterWords(path:str=r"D:\Programs\Portfolio WebSite\static\templates\pr
         for word in words:
             formatedName += word.replace(".html","").capitalize() + " "
         formatedNames.append(formatedName.strip())
-    print(formatedNames)
-    print(foundFiles)
 
     dict = {formatedNames[i]: foundFiles[i] for i in range(len(foundFiles))}
     return dict

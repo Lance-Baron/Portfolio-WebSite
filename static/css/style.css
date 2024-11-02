@@ -74,3 +74,9 @@ a:hover{
     color:lightblue;
     cursor: pointer;
 }
+
+img{
+   height: 200px;
+   width: auto; 
+   border: 1px solid black;
+}
