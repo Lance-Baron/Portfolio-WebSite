@@ -2,6 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__,static_folder=r"static",template_folder=r"static\templates")
 
+app.config["proj_path"] = r"static\templates\projects"
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -22,24 +24,50 @@ def default_project_render(id):
 def noPage(error):
     return render_template("index.html")
 
-def makeBetterWords(path:str=r"static\templates\projects") -> dict[str]:
-    """Here to get data for listing each project file in templates""" 
+def findDesc(fileName:str) -> str:
     import os
-    foundFiles = []
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            foundFiles.append(file)  
 
-    formatedNames = []
-    for file in foundFiles:
+    description:str = ""
+    for root, dirs, files in os.walk(app.config["proj_path"]): #Adds all of the files that are in the given path to a list
+        for file in files:
+            if file == fileName:
+                with open(f"{app.config['proj_path']}\{fileName}","r") as proj_file: 
+                    for line in proj_file:
+                        if 'id="pro-desc"' in line:
+                            description = line
+                            break
+    description = description.replace('<p id="pro-desc">',"")
+    description = description.replace('</p>',"")
+    return description
+
+def makeBetterWords(path:str = app.config["proj_path"]) -> list[list[str]]:
+    """Here to get data for listing each project file in templates""" 
+    foundFiles:list[str] = findFiles(path)
+
+    finalData = [[],[],[]]
+    for file in foundFiles: #Changes files names to normal words
         words = file.split("_")
         formatedName = ""
         for word in words:
             formatedName += word.replace(".html","").capitalize() + " "
-        formatedNames.append(formatedName.strip())
+        desc = findDesc(file)
+        tempList = [file,formatedName,desc]
+        finalData.append(tempList)
 
-    dict = {formatedNames[i]: foundFiles[i] for i in range(len(foundFiles))}
-    return dict
+    return finalData
     
+def findFiles(path:str=r"static\templates\projects") -> list[str]:
+    import os
+    foundFiles = []
+
+    for root, dirs, files in os.walk(path): #Adds all of the files that are in the given path to a list
+        for file in files:
+            foundFiles.append(file)  
+    
+    return foundFiles
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # files = findFiles()
+    # for file in files:
+    #     print(findDesc(file))
+    app.run()
