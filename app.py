@@ -25,6 +25,7 @@ def noPage(error):
     return render_template("index.html")
 
 def findDesc(fileName:str) -> str:
+    """Finds the text inside of a the paragraph tag 'proj_desc' and returns it"""
     import os
 
     description:str = ""
@@ -57,6 +58,7 @@ def makeBetterWords(path:str = app.config["proj_path"]) -> list[list[str]]:
     return finalData
     
 def findFiles(path:str=r"static\templates\projects") -> list[str]:
+    """Returns a list of files given a path"""
     import os
     foundFiles = []
 
@@ -67,7 +69,4 @@ def findFiles(path:str=r"static\templates\projects") -> list[str]:
     return foundFiles
 
 if __name__ == "__main__":
-    # files = findFiles()
-    # for file in files:
-    #     print(findDesc(file))
     app.run()
