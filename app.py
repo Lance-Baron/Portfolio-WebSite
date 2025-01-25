@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-app = Flask(__name__,static_folder=r"D:\Programs\Portfolio WebSite\static",template_folder=r"D:\Programs\Portfolio WebSite\static\templates")
+app = Flask(__name__,static_folder=r"static",template_folder=r"static\templates")
 
 @app.route("/")
 def index():
@@ -22,7 +22,7 @@ def default_project_render(id):
 def noPage(error):
     return render_template("index.html")
 
-def makeBetterWords(path:str=r"D:\Programs\Portfolio WebSite\static\templates\projects") -> dict[str]:
+def makeBetterWords(path:str=r"static\templates\projects") -> dict[str]:
     """Here to get data for listing each project file in templates""" 
     import os
     foundFiles = []
