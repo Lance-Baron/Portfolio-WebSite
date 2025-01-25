@@ -68,10 +68,10 @@ body{
 }
 
 a{
-    color: white;
+    color: rgb(153, 190, 202);
 }
 a:hover{
-    color:lightblue;
+    color: rgb(106, 106, 230);
     cursor: pointer;
 }
 
